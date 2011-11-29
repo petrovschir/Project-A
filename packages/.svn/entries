@@ -1,0 +1,104 @@
+10
+
+dir
+10080
+svn://95.76.255.195/GPS/packages
+svn://95.76.255.195
+
+
+
+2011-11-25T09:32:10.218846Z
+10051
+bp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4ad443e3-b7e1-6a4f-8f16-29e2dfa59d6c
+
+jQuery.Ajax.Unobtrusive.1.0
+dir
+
+jQuery.1.6.2
+dir
+
+MongoDB
+dir
+
+jQuery.Validation.Unobtrusive.1.0
+dir
+
+repositories.config
+file
+
+
+
+
+2011-11-29T15:39:00.959871Z
+3449beb27918f2c2f5fbb5913e379bb0
+2011-11-22T18:28:21.384540Z
+10033
+bp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+143
+
+AspNetWebPagesCore.2.0.10906.0
+dir
+
+MicrosoftWebInfrastructure.1.0.0.0
+dir
+
+knockoutjs.1.2.9.0
+dir
+
+jQuery.UI.Combined.1.8.11
+dir
+
+EntityFramework.4.1.10331.0
+dir
+
+Microsoft.Web.Optimization.0.1
+dir
+
+System.Web.Providers.1.0.1
+dir
+
+Modernizr.2.0.6
+dir
+
+AspNetMvc.4.0.10906.0
+dir
+
+jQuery.Validation.1.8
+dir
+

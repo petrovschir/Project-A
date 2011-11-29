@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<style type="text/css">
+  html { height: 100% }
+  body { height: 100%; margin: 0; padding: 0 }
+  #map_canvas { height: 100% }
+</style>
+    <script src="./Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+<!--<script type="text/javascript" language="Javascript" src="http://ajax.microsoft.com/ajax/jQuery/jquery-1.4.1.min.js"></script>-->
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&sensor=false"></script>
+<script type="text/javascript">
+    var map;
+    var markersArray = [];
+
+    function initialize() {
+        var latlng = new google.maps.LatLng(47.158675, 27.583891);
+        var myOptions = {
+            zoom: 10,
+            center: latlng,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+//        google.maps.event.addListener(map, 'click', function () {
+//            getdetails();
+//        });
+    }
+
+    function getdetails() {
+        $.ajax({
+            type: "GET",
+            url: "http://www.ketl.gpstracking.rest.seatizenport.com/GpsRestLocationService/Location/ece4bad0-a40e-421c-b761-2d691982a128",
+            cache: false,
+            success: function (points) {
+                $.each(points, function (index, point) {
+                    var Coordinates = eval(point["Coordinates"]);
+                    var extraData = point["Data"];
+                    var LatLng = new google.maps.LatLng(Coordinates["Latitude"], Coordinates["Longitude"]);
+                    var marker = new google.maps.Marker({
+                        position: LatLng,
+                        map: map,
+                        title: "Hello World " + extraData + "!"
+                    });
+                    markersArray.push(LatLng);
+                });
+
+                var flightPath = new google.maps.Polyline({
+                    path: markersArray,
+                    strokeColor: "#FF0000",
+                    strokeOpacity: 1.0,
+                    strokeWeight: 2
+                });
+
+                flightPath.setMap(map);
+            },
+            error: function (msg) {
+                alert("Error " + msg);
+            }
+        });
+    }
+
+    function postUser() {
+        var req = { name: $("#txtUser").val() };
+
+        $.ajax({
+            type: "POST",
+            url: "http://www.ketl.gpstracking.rest.seatizenport.com/GpsRestLocationService/User",
+            data: JSON.stringify(req),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (msg) {
+                alert("Data Saved: " + eval(msg));
+            }
+        });
+
+    }
+</script>
+</head>
+<body onload="initialize();">
+  <input type="text" id="txtUser" />
+  <input type="button" id="btnCreateUser" onclick="postUser();" 
+        value="Create User" />
+    <input type="button" id="btnGetTrack" onclick="getdetails();" 
+        value="Get track" />
+    <div id="map_canvas" style="width:100%; height:100%"></div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 46
+bin
+GPSLocationService.csproj.user
+obj
+*.user
+
+END

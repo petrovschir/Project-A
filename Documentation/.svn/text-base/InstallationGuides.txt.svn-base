@@ -1,0 +1,14 @@
+Ca sa intalezi in IIS proiectul este un pic de bataie de cap.
+
+- Trebuie ca Application pool-ul sa fie ASP.NET v4.0 Classic
+- Trebuie de pus asta in web.config:
+	<handlers>
+        <remove name="ExtensionlessUrl-ISAPI-4.0_64bit" />
+        <remove name="ExtensionlessUrl-ISAPI-4.0_32bit" />
+        <remove name="StaticFile" />
+        <add name="ExtensionlessUrl-ISAPI-4.0_32bit" path="*" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="C:\Windows\Microsoft.NET\Framework\v4.0.30319\aspnet_isapi.dll" resourceType="Unspecified" requireAccess="Script" preCondition="classicMode,runtimeVersionv4.0,bitness32" responseBufferLimit="0" />
+        <add name="ExtensionlessUrl-ISAPI-4.0_64bit" path="*" verb="GET,HEAD,POST,DEBUG" modules="IsapiModule" scriptProcessor="C:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_isapi.dll" resourceType="Unspecified" requireAccess="Script" preCondition="classicMode,runtimeVersionv4.0,bitness64" responseBufferLimit="0" />
+    </handlers>
+
+Daca nu se face unul din cei doi pasi iti da o eroare din care nu intelegi nimic:
+500 - Internal server error.

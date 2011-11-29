@@ -1,0 +1,40 @@
+10
+
+dir
+10080
+svn://95.76.255.195/GPS/Core
+svn://95.76.255.195
+
+
+
+2011-11-28T11:58:22.730997Z
+10078
+cataro
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+4ad443e3-b7e1-6a4f-8f16-29e2dfa59d6c
+
+GPSTraking.Core
+dir
+
+GPSTraking.Model
+dir
+
+GPSTrakingService
+dir
+
+GPSTraking.MongoDataProvider
+dir
+

@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="Ketl.GpsTracking.Service.Global" Language="C#" %>

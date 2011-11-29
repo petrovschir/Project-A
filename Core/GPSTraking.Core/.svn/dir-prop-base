@@ -1,0 +1,9 @@
+K 10
+svn:ignore
+V 43
+bin
+GpsTraking.Core.csproj.user
+obj
+*.user
+
+END
